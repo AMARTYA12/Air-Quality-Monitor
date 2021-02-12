@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <SoftwareSerial.h>
+//#include <SoftwareSerial.h>
 #define LENG 31   //0x42 + 31 bytes equal to 32 bytes
 unsigned char buf[LENG];
 
@@ -7,19 +7,19 @@ int PM01Value=0;          //define PM1.0 value of the air detector module
 int PM2_5Value=0;         //define PM2.5 value of the air detector module
 int PM10Value=0;         //define PM10 value of the air detector module
 
-SoftwareSerial PMSerial(10, 11); // RX, TX
+//SoftwareSerial PMSerial(10, 11); // RX, TX
 
 void setup()
 {
-  PMSerial.begin(9600);
-  PMSerial.setTimeout(1500);
+  Serial1.begin(9600);
+  Serial1.setTimeout(1500);
   Serial.begin(9600);
 }
 
 void loop()
 {
-  if(PMSerial.find(0x42)){
-    PMSerial.readBytes(buf,LENG);
+  if(Serial1.find(0x42)){
+    Serial1.readBytes(buf,LENG);
 
     if(buf[0] == 0x4d){
       if(checkValue(buf,LENG)){
