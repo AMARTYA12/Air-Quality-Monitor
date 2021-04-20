@@ -1,16 +1,6 @@
 #include <SoftwareSerial.h>
 
 
-
-
-
-/*
- * Demo name   : TH02_dev demo 
- * Usage       : DIGITAL I2d HUMIDITY AND TEMPERATURE SENSOR 
- * Author      : Oliver Wang from Seeed Studio
- * Version     : V0.1
-*/
-
 #include <TH02_dev.h>
 #include "Arduino.h"
 #include "Wire.h" 
